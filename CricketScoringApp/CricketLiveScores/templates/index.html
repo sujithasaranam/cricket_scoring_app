@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form method="POST" action="/player">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Enter Details</h3>
+            </p>
+            <div>
+                <p>Player Name:</p>{{ form.pname }}
+            </div>
+            <div>
+                <p>Address:</p>{{ form.address}}
+            </div>
+            <div>
+                <p>Age:</p>{{ form.age }}
+            </div>
+            <div>
+                <p>Phone Number:</p>{{ form.phone_num }}
+            </div>
+            <div>
+                <p>Number of RunsScored</p>{{form.totalRuns}}
+            </div>
+            <div>
+                <p>Number of wickets</p>{{form.Wickets}}
+            </div>
+            <div>
+                <p>Team Number</p>{{form.tid}}
+            </div>
+            <div>
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

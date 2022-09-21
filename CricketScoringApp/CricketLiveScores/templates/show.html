@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players Record</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>Player Name</th>
+                <th>Player City</th>
+                <th>Player Age</th>
+                <th>Player Phone Number</th>
+                <th>Total Runs Scored</th>
+                <th>Wickets</th>
+                <th>Player Team Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+            <tr>
+                <td>{{player.pid }}</td>
+                <td>{{player.pname}}</td>
+                <td>{{player.address}}</td>
+                <td>{{player.age}}</td>
+                <td>{{player.phone_num}}</td>
+                <td>{{player.totalRuns}}</td>
+                <td>{{player.Wickets}}</td>
+                <td>{{player.tid}}</td>
+                <td>
+                    <a href="/update/{{ player.pid }}">Edit</a>
+                    <a href="/delete/{{player.pid}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button><a style="color:white;" href="/player">Add New Record</a></button>
+    <br>
+    <br>
+    <form method="POST" action="/play">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Match Details</h3>
+            </p>
+        </div>
+        <div>
+            <p>Enter Team ID 1:</p>
+            <div>
+                <input type="number" name="Tn1" />
+            </div>
+            <p>Enter Team ID 2:</p>
+            <div>
+                <input type="number" name="Tn2" />
+            </div>
+            <p>Number of Overs</p>
+            <div>
+                <input type="number" name="overs" />
+            </div>
+            <p>First Batting Team</p>
+            <div>
+                <input type="number" name="team" />
+            </div>
+        </div>
+        <div>
+            <br>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h3>Team1 Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>Player Name</th>
+                <th>Total Runs Scored</th>
+                <th>Wickets</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in t1 %}
+            <tr>
+                <td>{{i.pid }}</td>
+                <td>{{i.pname}}</td>
+                <td>{{i.totalRuns}}</td>
+                <td>{{i.Wickets}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Team2 Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>Player Name</th>
+                <th>Total Runs Scored</th>
+                <th>Wickets</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for j in t2 %}
+            <tr>
+                <td>{{j.pid }}</td>
+                <td>{{j.pname}}</td>
+                <td>{{j.totalRuns}}</td>
+                <td>{{j.Wickets}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <a href="{% url 'scores' %}" class="btn btn-info" role="button">Game</a>
+</body>
+<br>
+<br>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+</body>
+<form action="/scores" method="POST">
+    {% csrf_token %}
+    <div>
+    Score:<h2>{{score}}</h2>
+    Wickets:<h2>{{wickets}}</h2>
+    <input type="hidden" name="team" value="1"/>
+    <input type="hidden" name="team1" value="2"/>
+    </div>
+    <button type="submit" style="background-color: #008CBA;" name="one" value="1">One</button>
+    <button type="submit" style="background-color: #008CBA;" name="two" value="2">Two</button>
+    <button type="submit" style="background-color: #008CBA;" name="three" value="3">Three</button>
+    <button type="submit" style="background-color: #FFFF33;color:black" value="1">Wide</button>
+    <button type="submit" style="background-color: #FFDAB9;color:black" name="noball" value="1">No Ball</button>
+    <button type="submit" style="background-color: #f44336;" name="out" value="1">Out</button>
+    <button type="submit" style="background-color: #4CAF50;" name="four" value="4">Four</button>
+    <button type="submit" style="background-color: #4CAF50;" name="six" value="6">Six</button>
+  </form>
+</html>
